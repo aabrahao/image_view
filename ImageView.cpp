@@ -21,6 +21,22 @@ QImage scale(const QImage &image, QSize size, bool keepAspectioRatio = true) {
     return scaled;
 }
 
+QRect center(QSize frame, QSize object) {
+    int w = frame.width();
+    int h = frame.height();
+    int iw = object.width();
+    int ih = object.height();
+    if (w > h) {
+        iw = (int)((float)h*iw/ih + 0.5f);
+        ih = h;
+    }
+    else {
+        ih = (int)((float)w*ih/iw + 0.5f);
+        iw = w;
+    }
+    return QRect((w-iw)/2, (h-ih)/2, iw, ih);
+}
+
 ImageView::ImageView(QWidget *parent) :
     QWidget(parent) {
 
@@ -37,28 +53,12 @@ void ImageView::update(const QString &filename) {
 
 void ImageView::update(const QImage &image) {
     m_image = image;
-    update();
     QWidget::update();
 }
 
-void ImageView::update(QSize size) {
-    if (size.isEmpty())
-        size = this->size();
-    m_scaled = scale(m_image, size);
-    m_view.setRect((size.width() - m_scaled.width()) /2,
-                   (size.height() - m_scaled.height()) / 2,
-                   m_scaled.width(),
-                   m_scaled.height());
-}
-
-void ImageView::resizeEvent(QResizeEvent* event) {
-    update(event->size());
-    QWidget::resizeEvent(event);
-}
-
 void ImageView::paintEvent(QPaintEvent *) {
-    if (m_scaled.isNull())
+    if (m_image.isNull())
         return;
     QPainter painter(this);
-    painter.drawImage(m_view, m_scaled);
+    painter.drawImage(center(size(), m_image.size()), m_image);
 }
