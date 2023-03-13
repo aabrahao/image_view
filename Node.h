@@ -9,19 +9,16 @@
 
 #include "MainWindow.h"
 
-using std::placeholders::_1;
-
-class Node : public rclcpp::Node {
+class Node : public QObject {
+    Q_OBJECT
 public:
-    using SharedPtr = std::shared_ptr<Node>;
-    using ImageMessage = sensor_msgs::msg::Image;
-    using ImageSubscription = rclcpp::Subscription<ImageMessage>;
-    explicit Node(MainWindow::SharedPtr window);
+    Node(int argc, char *argv[], MainWindow *window);
 private:
-    void imageCallback(const ImageMessage::SharedPtr msg) const;
-    ImageSubscription::SharedPtr m_imageSubscription;
-    // MainWindow
-    MainWindow::SharedPtr m_window;
+    void imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) const;
+    // Members
+    rclcpp::Node::SharedPtr m_node;
+    rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr m_image;
+    MainWindow *m_window;
 };
 
 #endif // NODE_H
