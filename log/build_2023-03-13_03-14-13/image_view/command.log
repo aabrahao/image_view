@@ -1,0 +1,4 @@
+Invoking command in '/home/bilac/ros2_ws/src/image_view/build/image_view': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/bilac/ros2_ws/src/image_view -DCMAKE_INSTALL_PREFIX=/home/bilac/ros2_ws/src/image_view/install/image_view
+Invoked command in '/home/bilac/ros2_ws/src/image_view/build/image_view' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/bilac/ros2_ws/src/image_view -DCMAKE_INSTALL_PREFIX=/home/bilac/ros2_ws/src/image_view/install/image_view
+Invoking command in '/home/bilac/ros2_ws/src/image_view/build/image_view': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/bilac/ros2_ws/src/image_view/build/image_view -- -j16 -l16
+Invoked command in '/home/bilac/ros2_ws/src/image_view/build/image_view' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/bilac/ros2_ws/src/image_view/build/image_view -- -j16 -l16

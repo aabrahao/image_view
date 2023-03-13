@@ -1,0 +1,28 @@
+[0.016s] Invoking command in '/home/bilac/ros2_ws/src/image_view/build/image_view': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/bilac/ros2_ws/src/image_view/build/image_view -- -j16 -l16
+[0.087s] [ 14%] [34m[1mAutomatic MOC and UIC for target image_view[0m
+[0.110s] [ 14%] Built target image_view_autogen
+[0.122s] [35m[1mConsolidate compiler generated dependencies of target image_view[0m
+[0.152s] [ 28%] [32mBuilding CXX object CMakeFiles/image_view.dir/MainWindow.cpp.o[0m
+[1.204s] [ 42%] [32m[1mLinking CXX executable image_view[0m
+[2.163s] [100%] Built target image_view
+[2.179s] Invoked command in '/home/bilac/ros2_ws/src/image_view/build/image_view' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/bilac/ros2_ws/src/image_view/build/image_view -- -j16 -l16
+[2.218s] Invoking command in '/home/bilac/ros2_ws/src/image_view/build/image_view': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/bilac/ros2_ws/src/image_view/build/image_view
+[2.224s] -- Install configuration: ""
+[2.224s] -- Installing: /home/bilac/ros2_ws/src/image_view/install/image_view/lib/image_view/image_view
+[2.228s] -- Set runtime path of "/home/bilac/ros2_ws/src/image_view/install/image_view/lib/image_view/image_view" to ""
+[2.229s] -- Up-to-date: /home/bilac/ros2_ws/src/image_view/install/image_view/share/ament_index/resource_index/package_run_dependencies/image_view
+[2.229s] -- Up-to-date: /home/bilac/ros2_ws/src/image_view/install/image_view/share/ament_index/resource_index/parent_prefix_path/image_view
+[2.229s] -- Up-to-date: /home/bilac/ros2_ws/src/image_view/install/image_view/share/image_view/environment/ament_prefix_path.sh
+[2.229s] -- Up-to-date: /home/bilac/ros2_ws/src/image_view/install/image_view/share/image_view/environment/ament_prefix_path.dsv
+[2.229s] -- Up-to-date: /home/bilac/ros2_ws/src/image_view/install/image_view/share/image_view/environment/path.sh
+[2.229s] -- Up-to-date: /home/bilac/ros2_ws/src/image_view/install/image_view/share/image_view/environment/path.dsv
+[2.230s] -- Up-to-date: /home/bilac/ros2_ws/src/image_view/install/image_view/share/image_view/local_setup.bash
+[2.230s] -- Up-to-date: /home/bilac/ros2_ws/src/image_view/install/image_view/share/image_view/local_setup.sh
+[2.230s] -- Up-to-date: /home/bilac/ros2_ws/src/image_view/install/image_view/share/image_view/local_setup.zsh
+[2.230s] -- Up-to-date: /home/bilac/ros2_ws/src/image_view/install/image_view/share/image_view/local_setup.dsv
+[2.230s] -- Installing: /home/bilac/ros2_ws/src/image_view/install/image_view/share/image_view/package.dsv
+[2.231s] -- Up-to-date: /home/bilac/ros2_ws/src/image_view/install/image_view/share/ament_index/resource_index/packages/image_view
+[2.232s] -- Up-to-date: /home/bilac/ros2_ws/src/image_view/install/image_view/share/image_view/cmake/image_viewConfig.cmake
+[2.232s] -- Up-to-date: /home/bilac/ros2_ws/src/image_view/install/image_view/share/image_view/cmake/image_viewConfig-version.cmake
+[2.233s] -- Up-to-date: /home/bilac/ros2_ws/src/image_view/install/image_view/share/image_view/package.xml
+[2.234s] Invoked command in '/home/bilac/ros2_ws/src/image_view/build/image_view' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/bilac/ros2_ws/src/image_view/build/image_view
