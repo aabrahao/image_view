@@ -1,17 +1,15 @@
-# image\_view
+# image\_view = ROS2 + Qt6
 
-## A ROS2+Qt6 camera view
-
-image\_view is a ROS2 node that subsiscribe to image\_raw from usb\_cam ROS2 node and the video using a QWidget.
+*image\_view* is a ROS2 node that subsiscribe to image\_raw from *usb\_cam* node and display the video using a QWidget.
 
 ## ROS2 usage
 
 ```bash
-ros2 run usb\_cam usb\_cam\_exe
+ros2 run usb_cam usb_cam_exe
 ```
 
 ```bash
-ros2 run image\_view image\_view
+ros2 run image_view image_view
 ```
 
 ## Author
