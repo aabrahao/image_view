@@ -26,8 +26,8 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets)
 # Executable
 add_executable(${PROJECT_NAME}
       main.cpp
-      Node.cpp
-      Node.h
+      Ros.cpp
+      Ros.h
       ImageView.cpp
       ImageView.h
       MainWindow.cpp

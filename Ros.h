@@ -9,10 +9,10 @@
 
 #include "MainWindow.h"
 
-class Node : public QObject {
+class Ros : public QObject {
     Q_OBJECT
 public:
-    Node(int argc, char *argv[], MainWindow *window);
+    Ros(int argc, char *argv[], MainWindow *window);
 private:
     void imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) const;
     // Members
