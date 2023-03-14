@@ -1,6 +1,6 @@
-# image\_view = ROS2 + Qt6
+# image\_view
 
-*image\_view* is a ROS2 node that subsiscribe to image\_raw from *usb\_cam* node and display the video using a QWidget.
+**image\_view** is a simple ROS2 node that subsiscribe to **image\_raw** from **usb\_cam** node and display the video using a QWidget.
 
 ## ROS2 usage
 
