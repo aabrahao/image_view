@@ -3,17 +3,18 @@
 
 #include <QMainWindow>
 #include "ImageView.h"
-#include <memory>
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
 public:
-    using SharedPtr = std::shared_ptr<MainWindow>;
+    static MainWindow *instance() { return s_self; };
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     ImageView *view() { return m_view; }
 private:
+    // Data
     ImageView *m_view;
+    static MainWindow *s_self;
 };
 
 #endif // MAINWINDOW_H
