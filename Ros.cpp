@@ -33,7 +33,8 @@ Ros::Ros(int argc, char *argv[], const std::string &node_name) {
 }
 
 Ros::~Ros() {
-    shutdown();
+    rclcpp::shutdown(); 
+    LOG("ROS shutdown!");
 }
 
 void Ros::spin(void) {
@@ -47,8 +48,6 @@ void Ros::spinOnBackground(void) {
 
 void Ros::shutdown(void) {
     m_executor->cancel();
-    rclcpp::shutdown(); 
-    LOG("ROS shutdown!");
 }
 
 void Ros::imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) const { 
