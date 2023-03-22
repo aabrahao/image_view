@@ -1,8 +1,8 @@
 #include "Ros.h"
 #include <thread>
 #include <signal.h>
-
 #include "MainWindow.h"
+#include <cv_bridge/cv_bridge.h>
 
 void kill(int /*sig*/) {
     MainWindow::instance()->close();
@@ -18,7 +18,7 @@ Ros::Ros(int argc, char *argv[], const std::string &node_name) {
     m_node = rclcpp::Node::make_shared(node_name);
     m_executor->add_node(m_node);
     // Add ROS publisher and subscribers
-    m_image = m_node->create_subscription<sensor_msgs::msg::Image>("image_raw",
+    m_image = m_node->create_subscription<sensor_msgs::msg::Image>("image",
                                                         rclcpp::SystemDefaultsQoS(),
                                                         std::bind(&Ros::imageCallback, this, std::placeholders::_1));
     if (s_self) {
@@ -53,9 +53,19 @@ void Ros::shutdown(void) {
 void Ros::imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) const { 
     LOG("Received Image: %s %dx%d", msg->encoding.c_str(), msg->width, msg->height);
     if (msg->encoding != "rgb8") {
-        LOG("Image encoding not supported!");
-        return;
+        LOG("converting from: %s to %s", msg->encoding.c_str(), "rgb8");
+        cv::Mat image_in = cv_bridge::toCvShare(msg, "bgr8")->image;
+        cv::cvtColor(image_in, image_in, cv::COLOR_BGR2RGB);
+        if (!image_in.isContinuous() || image_in.elemSize() % 4 != 0) {
+          cv::Mat aligned_image;
+          image_in.copyTo(aligned_image);
+          image_in = aligned_image;
+        }
+        QImage image(image_in.data, image_in.cols, image_in.rows, QImage::Format_RGB888);
+        MainWindow::instance()->view()->update(image);
+    } else {
+        QImage image(&msg->data[0], msg->width, msg->height, QImage::Format_RGB888);
+        MainWindow::instance()->view()->update(image);
     }
-    QImage image(&msg->data[0], msg->width, msg->height, QImage::Format_RGB888);
-    MainWindow::instance()->view()->update(image);
 }
+
