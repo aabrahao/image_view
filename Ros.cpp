@@ -56,12 +56,8 @@ void Ros::imageCallback(const sensor_msgs::msg::Image::SharedPtr msg) const {
         LOG("converting from: %s to %s", msg->encoding.c_str(), "rgb8");
         cv::Mat image_in = cv_bridge::toCvShare(msg, "bgr8")->image;
         cv::cvtColor(image_in, image_in, cv::COLOR_BGR2RGB);
-        if (!image_in.isContinuous() || image_in.elemSize() % 4 != 0) {
-          cv::Mat aligned_image;
-          image_in.copyTo(aligned_image);
-          image_in = aligned_image;
-        }
-        QImage image(image_in.data, image_in.cols, image_in.rows, QImage::Format_RGB888);
+        sensor_msgs::msg::Image::SharedPtr output_msg = cv_bridge::CvImage(std_msgs::msg::Header(), "rgb8", image_in).toImageMsg();
+        QImage image(&output_msg->data[0], output_msg->width, output_msg->height, QImage::Format_RGB888);
         MainWindow::instance()->view()->update(image);
     } else {
         QImage image(&msg->data[0], msg->width, msg->height, QImage::Format_RGB888);
