@@ -14,7 +14,6 @@ QImage scale(const QImage &image, QSize size, bool keepAspectioRatio = true) {
             scaled = image.scaledToHeight(size.height());
         else
             scaled = image.scaledToWidth(size.width());
-
     }
     else
         scaled = image.scaled(size);
